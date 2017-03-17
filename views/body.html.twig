@@ -1,8 +1,40 @@
-{% extends "header.html.twig" %}
-
-
-
-
-
-
-{% extends "footer.html.twig" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <meta charset="utf-8">
+    <title>CD Organizer</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Let's Organize your CD's!</h1>
+      <form action="/cdlist" method="post">
+        <div class="form-group">
+          <label for="bandname">Enter the Band Name</label>
+          <input type="text" name="bandname">
+        </div>
+        <div class="form-group">
+          <label for="albumname">Enter the Album Name</label>
+          <input type="text" name="albumname">
+        </div>
+        <div class="form-group">
+          <label for="genre">Enter the Genre</label>
+          <input type="text" name="genre">
+        </div>
+        <button type="submit" name="btn-info">Submit!</button>
+      </form>
+      <h2>We'll list them here!</h2>
+      {% for cd in cds %}
+        <h4>{{ cd.bandname }}</h4>
+        <ul>
+          <li>{{ cd.albumname }}</li>
+          <li>{{ cd.musicgenre }}</li>
+        </ul>
+      {% endfor %}
+      <form action="/delete" method="post">
+        <button type="submit" name="btn">Delete</button>
+      </form>
+    </div>
+  </body>
+</html>

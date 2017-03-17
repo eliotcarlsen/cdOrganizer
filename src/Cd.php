@@ -1,46 +1,45 @@
 <?php
     class Cd
     {
-        private $band_name;
-        private $album_name;
-        private $music_genre;
+        private $bandname;
+        private $albumname;
+        private $musicgenre;
 
-
-        function __construct($band_name, $album_name, $music_genre)
+        function __construct($bandname, $albumname, $musicgenre)
         {
-          $this->band_name = $band_name;
-          $this->album_name = $album_name;
-          $this->music_genre = $music_genre;
+          $this->bandname = $bandname;
+          $this->albumname = $albumname;
+          $this->musicgenre = $musicgenre;
         }
 
-        function setBandName($new_band_name)
+        function setBandName($newbandname)
         {
-            $this->band_name = $new_band_name;
+            $this->bandname = $newbandname;
         }
 
         function getBandName()
         {
-            return $this->band_name;
+            return $this->bandname;
         }
 
-        function setAlbumName($new_album_name)
+        function setAlbumName($newalbumname)
         {
-            $this->album_name = $new_album_name;
+            $this->albumname = $newalbumname;
         }
 
         function getAlbumName()
         {
-            return $this->album_name;
+            return $this->albumname;
         }
 
-        function setMusicGenre($new_music_genre)
+        function setMusicGenre($newmusicgenre)
         {
-            $this->music_genre = $new_music_genre;
+            $this->musicgenre = $newmusicgenre;
         }
 
         function getMusicGenre()
         {
-            return $this->music_genre;
+            return $this->musicgenre;
         }
 
         function save()
@@ -51,6 +50,11 @@
         static function getAll()
         {
             return $_SESSION['list_of_cds'];
+        }
+
+        static function deleteAll()
+        {
+            $_SESSION['list_of_cds'] = array();
         }
     }
 ?>
